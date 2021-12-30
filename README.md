@@ -1,2 +1,7 @@
-# ad-hoc-commands
-An Ansible ad hoc command uses the /usr/bin/ansible command-line tool to automate a single task on one or more managed nodes. ad hoc commands are quick and easy, but they are not reusable. 
+# Ad-hoc commands on Ansible
+
+### `File Transfer`
+```
+ansible atlanta -m copy -a "src=/etc/hosts dest=/tmp/hosts"
+ansible webservers -m file -a "dest=/srv/foo/a.txt mode=600"
+```
