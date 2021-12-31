@@ -16,4 +16,18 @@ $ ansible webservers -m yum -a "name=acme-1.5 state=present" (garante que a vers
 $ ansible webservers -m ansible.builtin.service -a "name=httpd state=started" (garante que o service esteja iniciado)
 ```
 
+### `Manage Services`
+```
+ansible prod -m service -a "name=httpd state=started" - Inicia o service desejado.
+ansible prod -m service -a "name=httpd state=restarted" - Restarta o service desejado.
+ansible prod -m service -a "name=httpd state=stopped" - Pausa o service desejado.
+```
+
+### `Manage Packages`
+```
+ansible prod -m apt -a "name=giropops state=present" - Instala o pacote desejado no servidor
+ansible prod -m apt -a "name=giropops-1.2 state=present" - Instala o pacote com a versão desejada
+ansible prod -m apt -a "name=giropops state=latest" - Instala a última versão do pacote desejado
+ansible prod -m apt -a "name=giropops state=absent" - Desinstala o pacote desejado no servidor
+```
 
